@@ -15,12 +15,7 @@ function displayWeater() {
     tempElement.innerHTML = `${weather.temperature.value} °<span>C</span>`;
     descElement.innerHTML = weather.description;
     locationElement.innerHTML = `${weather.city}, ${weather.country}`;
-
 }
-
-
-    
-    
 
 
 // App data
@@ -40,3 +35,13 @@ function celsiusToFahrenheit(temperature) {
     return (temperature * 9/5)+ 32;
 }
 
+
+tempElement.addEventListener("click", function() {
+    
+    if (weather.temperature.unit === "celsius"){
+       let fahrenheit =  celsiusToFahrenheit(weather.temperature.value);
+       fahrenheit = Math.floor(fahrenheit);
+
+       tempElement.innerHTML = `${fahrenheit}° <span>F</span>`;
+    }
+})
