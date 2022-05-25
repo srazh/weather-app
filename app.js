@@ -36,12 +36,17 @@ function celsiusToFahrenheit(temperature) {
 }
 
 
+
 tempElement.addEventListener("click", function() {
-    
     if (weather.temperature.unit === "celsius"){
        let fahrenheit =  celsiusToFahrenheit(weather.temperature.value);
        fahrenheit = Math.floor(fahrenheit);
 
        tempElement.innerHTML = `${fahrenheit}° <span>F</span>`;
+       weather.temperature.unit = "fahrenheit";
+    } else {
+        tempElement.innerHTML = `${weather.temperature.value}°<span>C</span>`;
+        weather.temperature.unit = "celsius"
     }
 })
+
